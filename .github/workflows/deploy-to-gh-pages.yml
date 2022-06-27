@@ -1,0 +1,25 @@
+name: Build and Deploy
+on: [push] # defaults to master
+permissions:
+  contents: write
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install and Build
+        run: |
+          npm install
+          npm run-script build
+        env:
+          REACT_APP_APIKey: ${{ secrets.REACT_APP_APIKey }}
+          REACT_APP_APISecret: ${{ secrets.REACT_APP_APISecret }}
+
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build # The folder the action should deploy.
