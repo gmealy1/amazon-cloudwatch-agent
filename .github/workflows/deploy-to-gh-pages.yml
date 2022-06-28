@@ -12,8 +12,8 @@ jobs:
 
       - name: Install and Build
         run: |
-          npm install
-          npm run build
+          npm install --prefix performance-tracking 
+          npm run build --prefix performance-tracking 
         env:
           REACT_APP_APIKey: ${{ secrets.REACT_APP_APIKey }}
           REACT_APP_APISecret: ${{ secrets.REACT_APP_APISecret }}
