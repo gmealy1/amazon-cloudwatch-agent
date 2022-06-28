@@ -3,6 +3,7 @@ import './App.css';
 
 function App() {
   console.log(process.env.REACT_APP_APIKEY)
+  console.log(process.env.REACT_APP_APISECRET)
   return (
     <div className="App">
       <header className="App-header">
