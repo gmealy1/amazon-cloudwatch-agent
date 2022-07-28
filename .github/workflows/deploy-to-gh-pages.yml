@@ -1,5 +1,9 @@
 name: Build and Deploy
-on: [push] # defaults to master
+on: 
+  push:
+    branches:
+      pages
+      
 permissions:
   contents: write
 jobs:
@@ -12,14 +16,14 @@ jobs:
 
       - name: Install and Build
         run: |
-          npm install --prefix performance-tracking 
-          npm run build --prefix performance-tracking 
+          npm install --prefix react_app 
+          npm run build --prefix react_app
         env:
-          REACT_APP_APIKEY: ${{ secrets.REACT_APP_APIKEY }}
-          REACT_APP_APISECRET: ${{ secrets.REACT_APP_APISECRET }}
+          REACT_APP_API_KEY_SECRET: ${{ secrets.REACT_APP_API_KEY_SECRET }}
+          REACT_APP_REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
 
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: performance-tracking/build # The folder the action should deploy.
+          folder: react_app/build # The folder the action should deploy.
