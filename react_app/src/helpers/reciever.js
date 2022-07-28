@@ -39,7 +39,7 @@ class Receiver {
       // ask dynamo what is the lastest hash it received 
       let cacheLatestItem = this.cacheGetLatestItem()//["Hash"].S //rename to lastest hash
       let cacheLatestHash = ""
-      if (cacheLatestItem === undefined) {
+      if (cacheLatestItem === null) {
         console.log("NO cache found", localStorage.key(0), localStorage.key(1))
         // no cache found, pull every thing and set
         this.CWAData = await this.getAllItems()
@@ -49,8 +49,9 @@ class Receiver {
         return
       } else {
         cacheLatestHash = cacheLatestItem["Hash"]
-        this.CWAData = this.cacheGetAllData()
+        this.CWAData = this.cacheGetAllData()  
       }
+      
       if (DynamoHash === cacheLatestHash) {
         console.log("synced") // synced up
       } else if (parseInt(dynamoLatestItem["CommitDate"]) >= parseInt(cacheLatestItem["CommitDate"])) {
