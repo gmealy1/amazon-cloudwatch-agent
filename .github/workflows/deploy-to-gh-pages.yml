@@ -3,7 +3,7 @@ on:
   push:
     branches:
       pages
-      
+
 permissions:
   contents: write
 jobs:
@@ -16,7 +16,7 @@ jobs:
 
       - name: Install and Build
         run: |
-          npm install --prefix react_app 
+          npm install --prefix react_app -f 
           npm run build --prefix react_app
         env:
           REACT_APP_API_KEY_SECRET: ${{ secrets.REACT_APP_API_KEY_SECRET }}
