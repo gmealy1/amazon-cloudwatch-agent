@@ -25,4 +25,4 @@ jobs:
 
       - name: Deploy
         run: |
-        git subtree split --branch gh-pages --prefix build/
+          git subtree split --branch gh-pages --prefix build/
