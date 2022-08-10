@@ -2,7 +2,7 @@ name: Build and Deploy Webpage
 on: 
   push:
     branches:
-      performance-benchmark-page
+      deploy-test
 
 permissions:
   contents: write
@@ -24,6 +24,5 @@ jobs:
 
 
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: build
+        run: |
+        git subtree split --branch gh-pages --prefix build/
