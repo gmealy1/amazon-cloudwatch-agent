@@ -1,7 +1,7 @@
 {
   "name": "performance-benchmark",
   "version": "0.1.0",
-  "homepage": "https://aws.github.io/amazon-cloudwatch-agent/",
+  "homepage": "https://gmealy1.github.io/amazon-cloudwatch-agent/",
   "private": false,
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.113.0",
